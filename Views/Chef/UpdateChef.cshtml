@@ -1,0 +1,52 @@
+﻿@model YummyProject.Models.Chef
+@{
+    ViewBag.Title = "Update Chef";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Update Chef Area</h2>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.ChefId)
+
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+
+    <label style="font-weight: bold;">Name</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+
+    <label style="font-weight: bold;">Title</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label style="font-weight: bold;">Description</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+
+    <h3>Update Social Media</h3>
+    <div id="socialMediaFields">
+        @foreach (var social in Model.ChefSocials)
+        {
+            <div class="social-media-group">
+                <label for="SocialMediaName">Social Media Name</label>
+                <input type="text" name="SocialMediaName[]" class="form-control" value="@social.SocialMediaName" placeholder="Enter Social Media Name" />
+                <br />
+
+                <label for="SocialMediaUrl">Social Media URL</label>
+                <input type="text" name="SocialMediaUrl[]" class="form-control" value="@social.Url" placeholder="Enter Social Media URL" />
+                <br />
+
+                <label for="SocialMediaIcon">Social Media Icon (Optional)</label>
+                <input type="text" name="SocialMediaIcon[]" class="form-control" value="@social.Icon" placeholder="Enter Social Media Icon" />
+                <br />
+            </div>
+        }
+    </div>
+
+    <button class="btn btn-outline-primary">Update</button>
+    <br />
+</form>

@@ -1,0 +1,57 @@
+﻿@model YummyProject.Models.Booking
+@{
+    ViewBag.Title = "UpdateBooking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Reservation Update Page</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    @Html.HiddenFor(x => x.BookingId)
+
+    <label><strong>Name</strong></label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <label><strong>Email</strong></label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label><strong>Phone</strong></label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+    <label><strong>Reservation Date</strong></label>
+    <input type="date" name="BookingDate" value="@Model.BookingDate.ToString("yyyy-MM-dd")" class="form-control" />
+    <br />
+    <label><strong>Reservation Time</strong></label>
+    <input type="time" name="BookingHour" value="@Model.BookingHour" class="form-control" />
+    <br />
+    <label><strong>Person Count</strong></label>
+    <select name="PersonCount" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option disabled>If you would like to make a reservation for more people, please contact us.</option>
+    </select>
+    <br />
+    <label><strong>Message</strong></label>
+    @Html.TextAreaFor(x => x.MessageContent, 3, 1, new { @class = "form-control" })
+    <br />
+    <label><strong>Approval Status</strong></label>
+    <select name="IsApproved" class="form-control">
+        <option value="true">Approved</option>
+        <option value="false">Not Approved</option>
+    </select>
+    <br />
+    <div class="text-center">
+        <button class="btn btn-warning">Update</button>
+    </div>
+    <br />
+
+</form>
+
+

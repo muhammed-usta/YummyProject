@@ -1,0 +1,45 @@
+﻿<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Dashboard</div>
+                <a class="nav-link" href="@Url.Action("Index", "Dashboard")">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Dashboard
+                </a>
+                <div class="sb-sidenav-menu-heading">Admin Operations</div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Admin Operations
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="@Url.Action("Index", "Feature")">Feature</a>
+                        <a class="nav-link" href="@Url.Action("Index", "About")">About Us</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Service")">Services</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Product")">Products</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Testimonial")">Testimonial</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Event")">Events</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Chef")">Chefs</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Booking")">Booking</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Gallery")">Gallery</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Contact")">Contact</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Message")">Messages</a>
+                    </nav>
+                </div>
+                
+                <div class="sb-sidenav-menu-heading">Addons</div>
+                <a class="nav-link" href="@Url.Action("Index", "Default")" target="_blank">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                   Go to site
+                </a>
+                
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Admin Panel
+        </div>
+    </nav>
+</div>

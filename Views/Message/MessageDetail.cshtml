@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "MessageDetail";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Message Detail</h2>
+
+
+<br />
+<table class="table table-striped">
+
+    <tr>
+        <th>Gönderen Ad Soyad: </th>
+        <td>@Model.Name</td>
+    </tr>
+
+    <tr>
+        <th>Gönderen Email: </th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Mesaj İçeriği: </th>
+        <td>@Model.MessageContent</td>
+    </tr>
+
+</table>
+
+<br />
+<a href="/Message/Index" class="btn btn-primary">Return to the messages</a>
+

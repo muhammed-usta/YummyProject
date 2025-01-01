@@ -1,0 +1,131 @@
+﻿@model List<YummyProject.Models.Booking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3 class="flex-grow-1 text-center">Pending Reservations</h3>
+
+        <a href="/Booking/ApprovedReservations" class="btn btn-success" style="margin-right: 10px;">Approved Reservations</a>
+        <a href="/Booking/AddBooking" class="btn btn-info">Add New Reservations</a>
+
+
+    </div>
+    <br />
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+
+        .d-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flex-grow-1 {
+            flex-grow: 1;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+    </style>
+
+    <!-- Tablo -->
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Person Count</th>
+            <th>Message</th>
+            <th>Approval Status</th>
+            <th>Approve</th>
+
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.IsApproved == false)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.BookingDate.ToString("yyyy-MM-dd")</td>
+                    <td>@item.BookingHour</td>
+                    <td>@item.PersonCount</td>
+                    <td>
+                        @if (item.MessageContent != null && item.MessageContent.Length > 30)
+                        {
+                            <span class="message-preview" data-full-message="@item.MessageContent">@item.MessageContent.Substring(0, 30)...</span>
+                        }
+                        else
+                        {
+                            @item.MessageContent
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.IsApproved)
+                        {
+                            <span class="badge bg-success">Approved</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">Pending</span>
+                        }
+                    </td>
+
+                    @if (!item.IsApproved)
+                    {
+                        <td>
+                            <a href="/Booking/Approved/@item.BookingId" class="btn btn-success">
+                                Approve
+                            </a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+
+                    <td><a href="/Booking/DeleteBooking/@item.BookingId" class="btn btn-danger">Delete</a></td>
+                    <td><a href="/Booking/UpdateBooking/@item.BookingId" class="btn btn-primary">Update</a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const messagePreviews = document.querySelectorAll(".message-preview");
+
+        messagePreviews.forEach(function (preview) {
+            preview.addEventListener("click", function () {
+                const fullMessage = preview.getAttribute("data-full-message");
+                alert(fullMessage); 
+            });
+        });
+    });
+</script>
+
+
+<style>
+    .message-preview {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    }
+</style>

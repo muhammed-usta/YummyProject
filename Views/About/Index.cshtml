@@ -1,0 +1,48 @@
+﻿@model List<YummyProject.Models.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>About Area</h2>
+
+<table class="table table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Video's Image</th>
+        <th>Item1</th>
+        <th>Item2</th>
+        <th>Item3</th>
+        <th>Description</th>
+        <th>Phone</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+   @foreach (var item in Model)
+
+   {
+        <tr>
+            <th>@item.AboutId</th>
+            <td><img src="@item.ImageUrl" style="width:50px;height:50px;" /></td>
+            <td><img src="@item.ImageUrl2" style="width:50px;height:50px;" /></td>
+            <td>@item.Item1</td>
+            <td>@item.Item2</td>
+            <td>@item.Item3</td>
+            <td>@item.Description</td>
+            <td>@item.PhoneNumber</td>
+     
+            <td><a href="/About/DeleteAbout/@item.AboutId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/About/UpdateAbout/@item.AboutId" class="btn btn-success">Update</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<br />
+<a href="/About/AddAbout" class="btn btn-info">Add New About Area</a>
+
+
+

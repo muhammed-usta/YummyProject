@@ -1,0 +1,50 @@
+﻿@model YummyProject.Models.Testimonial
+@{
+    ViewBag.Title = "AddTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Add New Testimmonial Area Page</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+
+
+    <br />
+    <label>Name Surname</label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.NameSurname) </div>
+
+    <br />
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Title) </div>
+
+    <br />
+    <label>Comment</label>
+    @Html.TextBoxFor(x => x.Comment, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Comment) </div>
+    <br />
+
+    <label>Rating</label>
+    <select name="Rating" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        
+    </select>
+    <br />
+
+    <div class="text-danger">@ViewBag.error</div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+

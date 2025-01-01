@@ -1,0 +1,30 @@
+﻿@model YummyProject.Models.Feature
+@{
+    ViewBag.Title = "UpdateFeature";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Update Featured Area Page</h2>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.FeatureId)
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+    <label style="font-weight: bold;">Title</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label style="font-weight: bold;">Description</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <label style="font-weight: bold;">Video Url</label>
+    @Html.TextBoxFor(x => x.VideoUrl, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-outline-primary">Update</button>
+    <br />
+
+</form>

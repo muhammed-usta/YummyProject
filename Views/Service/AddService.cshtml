@@ -1,0 +1,37 @@
+﻿@model YummyProject.Models.Service
+
+@{
+    ViewBag.Title = "AddService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2> Add New Service Area </h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <br />
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Title) </div>
+    <br />
+
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Description) </div>
+    <br />
+
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Icon) </div>
+
+
+
+
+    <br />
+    <div class="text-danger">@ViewBag.error</div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+
+
+

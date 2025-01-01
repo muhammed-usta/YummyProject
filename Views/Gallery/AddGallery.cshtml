@@ -1,0 +1,25 @@
+﻿@model YummyProject.Models.PhotoGallery
+@{
+    ViewBag.Title = "AddGallery";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Add New Gallery Area</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+
+    <div class="text-danger">@ViewBag.error</div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+

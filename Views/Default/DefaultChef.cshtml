@@ -1,0 +1,42 @@
+﻿@model List<YummyProject.Models.Chef>
+
+<section id="chefs" class="chefs section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Şeflerimiz</h2>
+        <p><span>Bizim</span> <span class="description-title">Profesyonel Şeflerimiz<br></span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row gy-4">
+            @foreach (var chef in Model)
+            {
+
+
+
+            <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="@chef.ImageUrl" class="img-fluid" alt="">
+
+                        @Html.Action("DefaultChefSocial", "Default", new { chefId = chef.ChefId })
+
+                    </div>
+
+                    <div class="member-info">
+                        <h4>@chef.Name</h4>
+                        <span>@chef.Title</span>
+                        <p>@chef.Description</p>
+                    </div>
+                </div>
+            </div><!-- End Chef Team Member -->
+
+
+            }
+        </div>
+
+    </div>
+
+</section>

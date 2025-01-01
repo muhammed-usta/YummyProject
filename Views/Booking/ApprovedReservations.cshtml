@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "ApprovedReservations";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Approved Reservations</h2>
+
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th>Date</th>
+        <th>Person Count</th>
+        <th>Message</th>
+        <th>Approvel Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.IsApproved == true)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.BookingDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.PersonCount</td>
+
+                
+                <td>
+                    @if (item.MessageContent != null && item.MessageContent.Length > 30)
+                    {
+                        <span class="message-preview" data-full-message="@item.MessageContent">@item.MessageContent.Substring(0, 30)...</span>
+                    }
+                    else
+                    {
+                        @item.MessageContent
+                    }
+                </td>
+
+                <td><button class="btn btn-outline-warning">Approved</button></td>
+
+                <td><a href="/Booking/DeleteBooking/@item.BookingId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Booking/UpdateBooking/@item.BookingId" class="btn btn-primary">Update</a></td>
+            </tr>
+        }
+    }
+</table>
+
+<br />
+<div class="text-center">
+    <a href="/Booking/AddBooking" class="btn btn-success">Add New Reservation</a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const messagePreviews = document.querySelectorAll(".message-preview");
+
+        messagePreviews.forEach(function (preview) {
+            preview.addEventListener("click", function () {
+                const fullMessage = preview.getAttribute("data-full-message");
+                alert(fullMessage); 
+            });
+        });
+    });
+</script>
+
+
+<style>
+    .message-preview {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    }
+</style>

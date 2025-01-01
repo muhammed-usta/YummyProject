@@ -1,0 +1,47 @@
+﻿@model YummyProject.Models.About
+@{
+    ViewBag.Title = "UpdateAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Update About Area Page</h2>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.AboutId)
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+    <div>
+        <label for="ImageFile2">Video's Image</label>
+        <input type="file" name="ImageFile2" id="ImageFile2" />
+    </div>
+    <br />
+    <label style="font-weight: bold;">Item1</label>
+    @Html.TextBoxFor(x => x.Item1, new { @class = "form-control" })
+    <br />
+
+    <label style="font-weight: bold;">Item2</label>
+    @Html.TextBoxFor(x => x.Item2, new { @class = "form-control" })
+    <br />
+
+    <label style="font-weight: bold;">Item3</label>
+    @Html.TextBoxFor(x => x.Item3, new { @class = "form-control" })
+    <br />
+
+    <label style="font-weight: bold;">Description</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+
+
+    <label style="font-weight: bold;">Video Url</label>
+    @Html.TextBoxFor(x => x.VideoUrl, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-outline-primary">Update</button>
+    <br />
+
+</form>
+

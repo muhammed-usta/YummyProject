@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B80A14FF-C772-49BA-ADCB-A7D2A7B19C6B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YummyProject</RootNamespace>
+    <AssemblyName>YummyProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44370</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\YummyContext.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminLayoutController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\ChefController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\FeatureController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\TestimonialController.cs" />
+    <Compile Include="Controllers\UILayoutController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412212120534_initial.cs" />
+    <Compile Include="Migrations\202412212120534_initial.Designer.cs">
+      <DependentUpon>202412212120534_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412241842505_mig_socialmedia_table_added.cs" />
+    <Compile Include="Migrations\202412241842505_mig_socialmedia_table_added.Designer.cs">
+      <DependentUpon>202412241842505_mig_socialmedia_table_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412252214269_mig-ContactInfo-addOffDay.cs" />
+    <Compile Include="Migrations\202412252214269_mig-ContactInfo-addOffDay.Designer.cs">
+      <DependentUpon>202412252214269_mig-ContactInfo-addOffDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412252218542_mig-ContactInfoes-addOpenDay.cs" />
+    <Compile Include="Migrations\202412252218542_mig-ContactInfoes-addOpenDay.Designer.cs">
+      <DependentUpon>202412252218542_mig-ContactInfoes-addOpenDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412292118545_mig-add-booking-hour.cs" />
+    <Compile Include="Migrations\202412292118545_mig-add-booking-hour.Designer.cs">
+      <DependentUpon>202412292118545_mig-add-booking-hour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412292121229_mig-edit-booking-message.cs" />
+    <Compile Include="Migrations\202412292121229_mig-edit-booking-message.Designer.cs">
+      <DependentUpon>202412292121229_mig-edit-booking-message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412292145277_UpdateDatabase.cs" />
+    <Compile Include="Migrations\202412292145277_UpdateDatabase.Designer.cs">
+      <DependentUpon>202412292145277_UpdateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202501011715399_mig-updatebookingmodel.cs" />
+    <Compile Include="Migrations\202501011715399_mig-updatebookingmodel.Designer.cs">
+      <DependentUpon>202501011715399_mig-updatebookingmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\About.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Chef.cs" />
+    <Compile Include="Models\ChefSocial.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Feature.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\PhotoGallery.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\SocialMedia.cs" />
+    <Compile Include="Models\Testimonial.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Templates\login-form-02\css\bootstrap.min.css" />
+    <Content Include="Templates\login-form-02\css\owl.carousel.min.css" />
+    <Content Include="Templates\login-form-02\css\style.css" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\demo-files\demo.css" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\demo-files\demo.js" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\demo.html" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\Read Me.txt" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\style.css" />
+    <Content Include="Templates\login-form-02\images\bg_1.jpg" />
+    <Content Include="Templates\login-form-02\index.html" />
+    <Content Include="Templates\login-form-02\js\bootstrap.min.js" />
+    <Content Include="Templates\login-form-02\js\jquery-3.3.1.min.js" />
+    <Content Include="Templates\login-form-02\js\main.js" />
+    <Content Include="Templates\login-form-02\js\owl.carousel.min.js" />
+    <Content Include="Templates\login-form-02\js\popper.min.js" />
+    <Content Include="Templates\login-form-02\main.html" />
+    <Content Include="Templates\sb-admin\401.html" />
+    <Content Include="Templates\sb-admin\404.html" />
+    <Content Include="Templates\sb-admin\500.html" />
+    <Content Include="Templates\sb-admin\assets\demo\chart-area-demo.js" />
+    <Content Include="Templates\sb-admin\assets\demo\chart-bar-demo.js" />
+    <Content Include="Templates\sb-admin\assets\demo\chart-pie-demo.js" />
+    <Content Include="Templates\sb-admin\assets\demo\datatables-demo.js" />
+    <Content Include="Templates\sb-admin\assets\img\error-404-monochrome.svg" />
+    <Content Include="Templates\sb-admin\charts.html" />
+    <Content Include="Templates\sb-admin\css\styles.css" />
+    <Content Include="Templates\sb-admin\index.html" />
+    <Content Include="Templates\sb-admin\js\datatables-simple-demo.js" />
+    <Content Include="Templates\sb-admin\js\scripts.js" />
+    <Content Include="Templates\sb-admin\layout-sidenav-light.html" />
+    <Content Include="Templates\sb-admin\layout-static.html" />
+    <Content Include="Templates\sb-admin\login.html" />
+    <Content Include="Templates\sb-admin\password.html" />
+    <Content Include="Templates\sb-admin\register.html" />
+    <Content Include="Templates\sb-admin\tables.html" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\css\main.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\about-2.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\about.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\apple-touch-icon.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\chefs\chefs-1.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\chefs\chefs-2.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\chefs\chefs-3.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\events-1.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\events-2.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\events-3.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\events-4.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\favicon.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-1.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-2.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-3.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-4.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-5.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-6.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-7.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\gallery\gallery-8.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\hero-img.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\logo.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\menu\menu-item-1.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\menu\menu-item-2.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\menu\menu-item-3.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\menu\menu-item-4.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\menu\menu-item-5.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\menu\menu-item-6.png" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\reservation.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\stats-bg.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\team-shape.svg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\testimonials\testimonials-1.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\testimonials\testimonials-2.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\testimonials\testimonials-3.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\testimonials\testimonials-4.jpg" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\js\main.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\scss\Readme.txt" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\aos\aos.cjs.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\aos\aos.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\aos\aos.esm.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\aos\aos.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap-icons\bootstrap-icons.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\prb.txt" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\glightbox\css\glightbox.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\glightbox\js\glightbox.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\php-email-form\validate.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\purecounter\purecounter_vanilla.js" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="Templates\yummy-red-1.0.0\forms\book-a-table.php" />
+    <Content Include="Templates\yummy-red-1.0.0\forms\contact.php" />
+    <Content Include="Templates\yummy-red-1.0.0\forms\Readme.txt" />
+    <Content Include="Templates\yummy-red-1.0.0\index.html" />
+    <Content Include="Templates\yummy-red-1.0.0\Readme.txt" />
+    <Content Include="Templates\yummy-red-1.0.0\starter-page.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\.DS_Store" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\img\.DS_Store" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\.DS_Store" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\aos\aos.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap-icons\bootstrap-icons.scss" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\purecounter\purecounter_vanilla.js.map" />
+    <Content Include="Templates\yummy-red-1.0.0\assets\vendor\swiper\swiper-bundle.min.js.map" />
+    <Content Include="Views\UILayout\Index.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\DefaultFeature.cshtml" />
+    <Content Include="Views\Default\DefaultAbout.cshtml" />
+    <Content Include="Views\Feature\AddFeature.cshtml" />
+    <Content Include="Views\AdminLayout\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Default\DefaultProduct.cshtml" />
+    <Content Include="Views\Default\DefaultService.cshtml" />
+    <Content Include="Views\Default\DefaultTestimonial.cshtml" />
+    <Content Include="Views\Default\DefaultEvent.cshtml" />
+    <Content Include="Views\Default\DefaultChef.cshtml" />
+    <Content Include="Views\Default\DefaultGallery.cshtml" />
+    <Content Include="Views\Default\DefaultContact.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutHead.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutSideBar.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutNavBar.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutScripts.cshtml" />
+    <Content Include="Views\Feature\Index.cshtml" />
+    <Content Include="Views\Feature\UpdateFeature.cshtml" />
+    <Content Include="Views\About\AddAbout.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\UpdateAbout.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\AddService.cshtml" />
+    <Content Include="Views\Service\UpdateService.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\AddProduct.cshtml" />
+    <Content Include="Views\Testimonial\Index.cshtml" />
+    <Content Include="Views\Testimonial\AddTestimonial.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Event\AddEvent.cshtml" />
+    <Content Include="Views\Event\UpdateEvent.cshtml" />
+    <Content Include="Views\Testimonial\UpdateTestimonial.cshtml" />
+    <Content Include="Templates\login-form-02\.DS_Store" />
+    <Content Include="Templates\login-form-02\css\.DS_Store" />
+    <Content Include="Templates\login-form-02\css\bootstrap.min.css.map" />
+    <Content Include="Templates\login-form-02\fonts\.DS_Store" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="Templates\login-form-02\fonts\icomoon\selection.json" />
+    <Content Include="Templates\login-form-02\images\.DS_Store" />
+    <Content Include="Templates\login-form-02\scss\.DS_Store" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_alert.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_badge.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_button-group.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_buttons.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_card.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_carousel.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_close.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_code.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_forms.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_functions.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_grid.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_images.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_input-group.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_list-group.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_media.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_mixins.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_modal.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_nav.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_navbar.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_pagination.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_popover.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_print.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_progress.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_reboot.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_root.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_spinners.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_tables.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_toasts.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_transitions.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_type.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_utilities.scss" />
+    <Content Include="Templates\login-form-02\scss\bootstrap\_variables.scss" />
+    <Content Include="Templates\login-form-02\scss\style.scss" />
+    <Content Include="Views\Login\SignIn.cshtml" />
+    <Content Include="Views\UILayout\SocialMedias.cshtml" />
+    <Content Include="Views\Chef\Index.cshtml" />
+    <Content Include="Views\Default\DefaultChefSocial.cshtml" />
+    <Content Include="Views\Default\DefaultFooter.cshtml" />
+    <Content Include="Views\Chef\AddChef.cshtml" />
+    <Content Include="Views\Chef\UpdateChef.cshtml" />
+    <Content Include="Views\Product\UpdateProduct.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\AddGallery.cshtml" />
+    <Content Include="Views\Gallery\UpdateGallery.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\AddContact.cshtml" />
+    <Content Include="Views\Contact\UpdateContact.cshtml" />
+    <Content Include="Views\Default\DefaultStats.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\ShowAllMessages.cshtml" />
+    <Content Include="Views\Message\MessageDetail.cshtml" />
+    <Content Include="Views\Chef\DeleteSocialMedia.cshtml" />
+    <Content Include="Views\Chef\AddSocialMedia.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Default\DefaultSendMessage.cshtml" />
+    <Content Include="Views\Booking\ApprovedReservations.cshtml" />
+    <Content Include="Views\Booking\UpdateBooking.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Default\DefaultAddBooking.cshtml" />
+    <Content Include="Views\Booking\AddBooking.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202412212120534_initial.resx">
+      <DependentUpon>202412212120534_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412241842505_mig_socialmedia_table_added.resx">
+      <DependentUpon>202412241842505_mig_socialmedia_table_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412252214269_mig-ContactInfo-addOffDay.resx">
+      <DependentUpon>202412252214269_mig-ContactInfo-addOffDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412252218542_mig-ContactInfoes-addOpenDay.resx">
+      <DependentUpon>202412252218542_mig-ContactInfoes-addOpenDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412292118545_mig-add-booking-hour.resx">
+      <DependentUpon>202412292118545_mig-add-booking-hour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412292121229_mig-edit-booking-message.resx">
+      <DependentUpon>202412292121229_mig-edit-booking-message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412292145277_UpdateDatabase.resx">
+      <DependentUpon>202412292145277_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501011715399_mig-updatebookingmodel.resx">
+      <DependentUpon>202501011715399_mig-updatebookingmodel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51618</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44370/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <Import Project="packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

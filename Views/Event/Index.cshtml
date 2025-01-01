@@ -1,0 +1,37 @@
+﻿@model List<YummyProject.Models.Event>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Event Area Page</h2>
+<table class="table table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.EventId</th>
+            <td><img src="@item.ImageUrl" style="width:100px;height:100px;" /></td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td><a href="/Event/DeleteEvent/@item.EventId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Event/UpdateEvent/@item.EventId" class="btn btn-success">Update</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<br />
+<a href="/Event/AddEvent" class="btn btn-info">Add New Event Area</a>
+

@@ -1,0 +1,55 @@
+﻿@model YummyProject.Models.Chef
+@{
+    ViewBag.Title = "AddChef";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<h2>Add New Chef Area Page </h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+
+
+    <label>Name</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Name) </div>
+    <br />
+
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Title) </div>
+
+    <br />
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Description) </div>
+
+    <br />
+    <h3>Add Social Media</h3>
+    <div id="socialMediaFields">
+        <div class="social-media-group">
+            <label for="SocialMediaName">Social Media Name</label>
+            <input type="text" name="SocialMediaName[]" class="form-control" placeholder="Enter Social Media Name" />
+            <br />
+            <label for="SocialMediaUrl">Social Media URL</label>
+            <input type="text" name="SocialMediaUrl[]" class="form-control" placeholder="Enter Social Media URL" />
+            <br />
+            <label for="SocialMediaIcon">Social Media Icon (Optional)</label>
+            <input type="text" name="SocialMediaIcon[]" class="form-control" placeholder="Enter Social Media Icon" />
+            <br />
+        </div>
+    </div>
+
+    <br />
+    <div class="text-danger">@ViewBag.error</div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+

@@ -1,0 +1,50 @@
+﻿@model YummyProject.Models.ChefSocial
+@{
+    ViewBag.Title = "Add Social Media";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Add Social Media</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form method="post">
+    <!-- Şef seçimi -->
+    <div class="form-group">
+        <label for="ChefId">Select Chef</label>
+        @Html.DropDownList("chefId", (SelectList)ViewBag.Chefs, "Select a Chef", new { @class = "form-control" })
+    </div>
+
+    <!-- Sosyal Medya Adı -->
+    <div class="form-group">
+        <label for="SocialMediaName">Social Media Name</label>
+        <input type="text" name="socialMediaName" class="form-control" placeholder="Enter Social Media Name" required />
+    </div>
+
+    <!-- Sosyal Medya URL -->
+    <div class="form-group">
+        <label for="SocialMediaUrl">Social Media URL</label>
+        <input type="text" name="socialMediaUrl" class="form-control" placeholder="Enter Social Media URL" required />
+    </div>
+
+    <!-- Sosyal Medya İkonu (Opsiyonel) -->
+    <div class="form-group">
+        <label for="SocialMediaIcon">Social Media Icon (Optional)</label>
+        <input type="text" name="socialMediaIcon" class="form-control" placeholder="Enter Social Media Icon (optional)" />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Add Social Media</button>
+</form>

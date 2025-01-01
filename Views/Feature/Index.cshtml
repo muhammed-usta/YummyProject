@@ -1,0 +1,40 @@
+﻿
+@model List<YummyProject.Models.Feature>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<h2>Featured Area</h2>
+
+<table class="table table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.FeatureId</th>
+            <td><img src="@item.ImageUrl" style="width:50px;height:50px;" /></td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td><a href="/Feature/DeleteFeature/@item.FeatureId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Feature/UpdateFeature/@item.FeatureId" class="btn btn-success">Update</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<br />
+<a href="/Feature/AddFeature" class="btn btn-info">Add New Featured Area</a>
+
+
+

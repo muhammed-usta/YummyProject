@@ -1,0 +1,107 @@
+﻿
+@model YummyProject.Models.Booking
+
+<section id="booking" class="book-a-table section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Rezarvasyon Yap</h2>
+        <p><span>Rezervasyon Yapın </span> <span class="description-title">Masanızı Hemen Ayıralım <br></span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="col-lg-4 reservation-img" style="background-image: url(/Templates/yummy-red-1.0.0/assets/img/reservation.jpg);"></div>
+
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
+                <form action="@Url.Action("DefaultAddBooking", "Default")" method="post" role="form" class="php-email-form">
+                    <div class="row gy-4">
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" name="Name" class="form-control" id="name" placeholder="Ad Soyad" required="" />
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="email" class="form-control" name="Email" id="email" placeholder="Email" required="" />
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" name="PhoneNumber" id="phone" placeholder="Telefon No" required="" />
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="date" name="BookingDate" class="form-control" id="date" placeholder="Tarih" required="" />
+                            @Html.ValidationMessageFor(m => m.BookingDate, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="time" class="form-control" name="BookingHour" id="time" placeholder="Saat" required="" />
+                            @Html.ValidationMessageFor(m => m.BookingHour, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="number" class="form-control" name="PersonCount" id="people" placeholder="Kişi Sayısı" required="" />
+                            @Html.ValidationMessageFor(m => m.PersonCount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="MessageContent" rows="5" placeholder="Mesajınız"></textarea>
+                        @Html.ValidationMessageFor(m => m.MessageContent, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="text-center mt-3">
+                    
+                        <div class="error-message"></div>
+
+                        <div class="sent-message">Rezervasyon talebiniz oluşturuldu. onaylamak için size dönüş yapacağız. Teşekkür ederiz!</div>
+                        <button type="submit">Rezervasyon Yap</button>
+                    </div>
+                </form>
+            </div><!-- End Reservation Form -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".php-email-form");
+        const submitButton = form.querySelector("button[type='submit']");
+        const errorMessage = document.querySelector(".error-message");
+        const successMessage = document.querySelector(".sent-message");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Formun otomatik gönderimini engelle
+
+            const formData = new FormData(form); // Formdaki verileri al
+
+            // Başlangıçta mesajları gizleyelim
+            successMessage.style.display = "none";
+            errorMessage.style.display = "none";
+
+            // Formu gönder
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(result => {
+                    if (result.includes("Başarıyla tamamlandı")) { // Başarı mesajını kontrol et
+                        successMessage.style.display = "block"; // Başarı mesajını göster
+                        successMessage.textContent = "Rezervasyon talebiniz başarıyla alındı!"; // Başarı mesajını güncelle
+                    } else {
+                        errorMessage.style.display = "block"; // Hata mesajını göster
+                        errorMessage.textContent = "" + result; // Hata mesajını güncelle
+                    }
+                })
+                .catch(error => {
+                    errorMessage.style.display = "block";
+                    errorMessage.textContent = "";
+                    successMessage.style.display = "none";
+                });
+        });
+    });
+
+</script>

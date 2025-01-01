@@ -1,0 +1,31 @@
+﻿@model YummyProject.Models.Admin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Profile Information Update Page</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="text-center">
+        <label>Profile Image</label>
+        <img src="@Model.ImageUrl" style="width:75px;height:100px" alt="Profil Resmi" />
+    </div>
+    <br /><br />
+
+    <label>Update Profil Image</label>
+    <input type="file" name="ImageFile" />
+    <br />
+    <label>Name Surname</label>
+    <input type="text" name="NameSurname" class="form-control" value="@Model.NameSurname" />
+    <br />
+
+    <label>Enter the password</label>
+    <input type="password" name="Password" class="form-control" />
+    <br />
+    <p style="color:red">@Html.ValidationSummary()</p>
+    <br />
+    <button class="btn btn-outline-primary">Update the information</button>
+
+</form>

@@ -1,0 +1,23 @@
+﻿@model YummyProject.Models.PhotoGallery
+@{
+    ViewBag.Title = "UpdateGallery";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Update Gallery Area</h2>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.PhotoGalleryID)
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+    
+
+    <button class="btn btn-outline-primary">Update</button>
+    <br />
+
+</form>
+
+

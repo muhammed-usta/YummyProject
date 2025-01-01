@@ -1,0 +1,48 @@
+﻿@model YummyProject.Models.Product
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Add New Product Area</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div>
+        <label for="ImageFile">Upload Photo</label>
+        <input type="file" name="ImageFile" id="ImageFile" />
+    </div>
+    <br />
+
+    <label>Product Name</label>
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <div class="text-danger">  </div>
+
+    <br />
+
+    <label>Ingredients</label>
+    @Html.TextBoxFor(x => x.Ingredients, new { @class = "form-control" })
+    <div class="text-danger">  </div>
+
+    <br />
+
+    <label>Price</label>
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <div class="text-danger">  </div>
+
+    <br />
+
+    <label>Category</label>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categories, new { @class = "form-control" })
+    <div class="text-danger">  </div>
+    <br />
+
+
+    <button class="btn btn-outline-success">Submit</button>
+
+
+
+
+
+</form>
+

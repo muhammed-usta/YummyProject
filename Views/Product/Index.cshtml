@@ -1,0 +1,125 @@
+﻿@model List<YummyProject.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2>Product Area</h2>
+
+<form method="get" class="mb-3">
+    <label for="category">Choose the Category:</label>
+    <select id="category" name="categoryId" class="form-select" style="width: 200px; display: inline;" onchange="this.form.submit()">
+        <option value="">--All of Categories--</option>
+        @foreach (var category in ViewBag.Categories as List<SelectListItem>)
+        {
+            <option value="@category.Value" @(Request.QueryString["categoryId"] == category.Value ? "selected" : "")>
+                @category.Text
+            </option>
+        }
+    </select>
+</form>
+
+
+<style>
+    .text-center {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table img {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+<table class="table table-bordered">
+    <tr>
+        <th class="text-center">#</th>
+        <th class="text-center">Product Name</th>
+        <th class="text-center">Ingredients</th>
+        <th class="text-center">Category</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Delete</th>
+        <th class="text-center">Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td class="text-center">@count</td>
+            <td class="text-center">
+                <img src="@item.ImageUrl" style="width:50px;height:50px;" alt="" />
+                @item.ProductName
+            </td>
+            <td class="text-center">@item.Ingredients</td>
+            <td class="text-center">@item.Category.CategoryName</td>
+            <td class="text-center">@item.Price</td>
+            <td class="text-center">
+                <a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-outline-danger">Delete</a>
+            </td>
+            <td class="text-center">
+                <a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-info">Update</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="pagination">
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a href="@Url.Action("Index", new { categoryId = ViewBag.CategoryId, page = ViewBag.CurrentPage - 1 })">&laquo; Previous</a>
+    }
+
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        <a href="@Url.Action("Index", new { categoryId = ViewBag.CategoryId, page = i })" class="@(i == ViewBag.CurrentPage ? "active" : "")">@i</a>
+    }
+
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="@Url.Action("Index", new { categoryId = ViewBag.CategoryId, page = ViewBag.CurrentPage + 1 })">Next &raquo;</a>
+    }
+</div>
+
+
+<style>
+    .pagination {
+        text-align: center;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center; 
+    }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #f1f1f1;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .pagination a:hover {
+                background-color: #ddd;
+            }
+
+        .pagination .active {
+            background-color: #4CAF50; 
+            color: white;
+        }
+
+</style>
+
+
+
+<br />
+<a href="/Product/AddProduct/" class="btn btn-outline-success">Add New Product</a>
+
+
+
+
+
+
+

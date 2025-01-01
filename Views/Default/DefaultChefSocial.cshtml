@@ -1,0 +1,10 @@
+﻿@model List<YummyProject.Models.ChefSocial>
+
+<div class="social">
+    @foreach (var chefSocial in Model)
+    {
+<a href="@chefSocial.Url" target="_blank">
+    <i class="bi @chefSocial.Icon"></i>
+</a>
+    }
+</div>

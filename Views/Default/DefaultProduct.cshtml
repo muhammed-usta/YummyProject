@@ -1,0 +1,75 @@
+﻿@model List<YummyProject.Models.Category>
+
+@{
+    int count = 0;
+    int count2 = 0;
+}
+<section id="menu" class="menu section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Menümüz</h2>
+        <p><span>Menümüze </span> <span class="description-title">Göz Atın</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+            @foreach (var category in Model)
+            {
+                count++;
+                <li class="nav-item">
+                    <a class="nav-link @(count==1 ? "active show" : "")" data-bs-toggle="tab" data-bs-target="#menu-@category.CategoryId">
+                        <h4>@category.CategoryName</h4>
+                    </a>
+                </li><!-- End tab nav item -->
+            }
+
+
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+            @foreach (var category in Model)
+            {
+                count2++;
+
+
+                <div class="tab-pane fade @(count2==1 ? "active show" : "")" id="menu-@category.CategoryId">
+
+                    <div class="tab-header text-center">
+                        <p>Menü</p>
+                        <h3>@category.CategoryName</h3>
+                    </div>
+
+                    <div class="row gy-5">
+
+                        @foreach (var product in category.Products)
+                        {
+                            <div class="col-lg-4 menu-item">
+                                <a href="@product.ImageUrl" style="width:100px;height:10px;" class="glightbox"><img src="@product.ImageUrl" class="menu-img img-fluid" alt=""></a>
+                                <h4>@product.ProductName</h4>
+                                <p class="ingredients">
+                                    @product.Ingredients
+                                </p>
+                                <p class="price">
+                                    @product.Price ₺
+                                </p>
+                            </div><!-- Menu Item -->
+                        }
+
+
+
+
+
+                    </div>
+                </div><!-- End Starter Menu Content -->
+            }
+
+
+        </div>
+
+    </div>
+
+</section>

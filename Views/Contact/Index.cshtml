@@ -1,0 +1,51 @@
+﻿@model List< YummyProject.Models.ContactInfo >
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Contact Area</h2>
+
+<table class="table table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Adress</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Map Url</th>
+        <th>Open Hours</th>
+        <th>Open Day</th>
+        <th>Off Day</th>
+
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var contact in Model)
+
+    {
+        <tr>
+            <th>@contact.ContactInfoId</th>
+            <td>@contact.Address</td>
+            <td>@contact.Email</td>
+            <td>@contact.PhoneNumber</td>
+            <td>@contact.MapUrl.Substring(0, 20)...</td>
+            <td>@contact.OpenHours</td>
+            <td>@contact.OpenDay</td>
+            <td>@contact.OffDay</td>
+
+            <td><a href="/Contact/DeleteContact/@contact.ContactInfoId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Contact/UpdateContact/@contact.ContactInfoId" class="btn btn-success">Update</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<br />
+<a href="/Contact/AddContact" class="btn btn-info">Add New Contact Area</a>
+
+
+
+
+

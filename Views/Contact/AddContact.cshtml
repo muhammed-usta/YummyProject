@@ -1,0 +1,57 @@
+﻿@model YummyProject.Models.ContactInfo
+@{
+    ViewBag.Title = "AddContact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Add New Contact Area</h2>
+
+<form method="post">
+
+
+    <label>Adress</label>
+    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Address) </div>
+
+    <br />
+    <label>Email</label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.Email) </div>
+
+    <br />
+
+    <label>Phone Number</label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.PhoneNumber) </div>
+    <br />
+
+    <label>Map Url</label>
+    @Html.TextBoxFor(x => x.MapUrl, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.MapUrl) </div>
+    <br />
+
+
+    <label>Open Hours</label>
+    @Html.TextBoxFor(x => x.OpenHours, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.OpenHours) </div>
+    <br />
+
+    <label>Open Day</label>
+    @Html.TextBoxFor(x => x.OpenDay, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.OpenDay) </div>
+    <br />
+
+    <label>Off Day</label>
+    @Html.TextBoxFor(x => x.OffDay, new { @class = "form-control" })
+    <div class="text-danger">   @Html.ValidationMessageFor(x => x.OffDay) </div>
+    <br />
+
+
+    <div class="text-danger">@ViewBag.error</div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+

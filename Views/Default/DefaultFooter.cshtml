@@ -1,0 +1,49 @@
+﻿@model YummyProject.Models.ContactInfo
+
+
+<footer id="footer" class="footer dark-background">
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-lg-3 col-md-6 d-flex">
+                <i class="bi bi-geo-alt icon"></i>
+                <div class="address">
+                    <h4>Adres</h4>
+                    <p>@Model.Address</p>
+                   
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex">
+                <i class="bi bi-telephone icon"></i>
+                <div>
+                    <h4>İletişim</h4>
+                    <p>
+                        <strong>Telefon:</strong> <span>@Model.PhoneNumber</span><br>
+                        <strong>Mail:</strong> <span>@Model.Email</span><br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex">
+                <i class="bi bi-clock icon"></i>
+                <div>
+                    <h4>Çalışma Saaatleri</h4>
+                    <p>
+                        <strong>@Model.OpenDay:</strong> <span>11AM - 23PM</span><br>
+                        <strong>@Model.OffDay</strong>: <span>Kapalı</span>
+                    </p>
+                </div>
+            </div>
+
+            @Html.Action("SocialMedias", "UILayout")
+
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Yummy</strong> <span>All Rights Reserved</span></p>
+        <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+        </div>
+    </div>
+</footer>

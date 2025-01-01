@@ -1,0 +1,43 @@
+﻿@model List<YummyProject.Models.Service>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Service Area</h2>
+
+
+<table class="table table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+       
+
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+
+    {
+        <tr>
+            <th>@item.ServiceId</th>
+
+
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+
+
+            <td><a href="/Service/DeleteService/@item.ServiceId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Service/UpdateService/@item.ServiceId" class="btn btn-success">Update</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<br />
+<a href="/Service/AddService" class="btn btn-info">Add New Service Area</a>
+
+
