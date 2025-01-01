@@ -3,37 +3,61 @@
 Proje Hakkında
 Yummy Restaurant, kullanıcıların restoranın sunduğu hizmetleri ve menü seçeneklerini kolayca keşfedebileceği, rezervasyon işlemlerini gerçekleştirebileceği ve şeflerin yemeklerine dair detaylı bilgiler alabileceği kullanıcı dostu bir platform olarak tasarlanmıştır.
 
+
 ------------- Kullanıcılar -------------
 
 Menüdeki yemekleri kategorilere göre inceleyebilir ve detaylarını görüntüleyebilir,
+
 Restoran etkinlikleri hakkında bilgi alabilir,
+
 Masa rezervasyonu yapabilir,
+
 Restoran ile doğrudan iletişime geçebilir,
+
 Sosyal medya bağlantıları aracılığıyla şeflerin ve restoranın paylaşımlarını takip edebilir.
 
 
+
 -------------- Admin Paneli -------------
+
 Admin paneli, restoran yöneticilerinin tüm içerikleri etkili bir şekilde yönetebilmesi için geliştirilmiştir. Bu panel sayesinde;
 
 Ürünler ve kategoriler,
+
 Şefler ve sosyal medya hesapları,
+
 Hizmetler ve etkinlikler,
+
 Galeri ve iletişim bilgileri,
+
 Referanslar, öne çıkan içerikler ve hakkımızda sayfası gibi bölümler üzerinde CRUD işlemleri yapılabilmektedir.
+
 Ek olarak, yönetici paneline özel özellikler:
 
 Rezervasyon taleplerini onaylama veya reddetme,
+
 Mesajlar bölümünde gelen mesajları görüntüleme ve okundu durumunu güncelleme.
 
+
+
 ------------- Proje Teknik Özellikleri -------------
+
 ASP.NET MVC 5 altyapısı ve Code-First yaklaşımı,
+
 SQL Server ile veritabanı yönetimi,
+
 Entity Framework ve LINQ sorguları,
+
 CRUD işlemleri,
+
 Validasyon kontrolleri,
+
 Yetkilendirme (Authorization) süreçleri,
+
 Dinamik kullanıcı arayüzü,
+
 Raporlama ve istatistik özellikleri.
+
 Bu proje, kullanıcı odaklı bir deneyim sunmayı ve restoran yönetim süreçlerini dijitalleştirmeyi amaçlayan kapsamlı bir çözüm olarak hayata geçirilmiştir.
 
 
